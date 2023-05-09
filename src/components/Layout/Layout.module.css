@@ -1,0 +1,46 @@
+.Header {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  background-color: var(--secondary-bg);
+  height: 65px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin-bottom: 20px;
+}
+
+.Spinner {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+}
+
+.NavItem {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.FooterContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background-color: var(--secondary-bg);
+  color: var(--accent-cl);
+  height: 60px;
+}

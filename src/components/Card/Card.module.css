@@ -1,0 +1,136 @@
+.Container {
+  position: relative;
+}
+
+.Card {
+  position: relative;
+  width: 380px;
+  height: 460px;
+  background-color: #471ca9;
+  display: block;
+
+  background-image: url(../../images/picture2\ 1.png),
+    url(../../images/ellipse.png), url(../../images/rectangle.png),
+    linear-gradient(114.99deg, #471ca9 -0.99%, #5736a3 54.28%, #4b2a99 78.99%);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(../../images/picture2\ 1@2x.png);
+  }
+  background-size: 308px, 82px, 380px, 100%;
+  background-repeat: no-repeat;
+  background-position: top 28px right 36px, top 170px left 150px,
+    bottom 238px right 0px, center;
+
+  box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
+  border-radius: 20px;
+}
+
+.Logo {
+  width: 76px;
+  height: 22px;
+
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.Ellipse {
+  position: absolute;
+  top: 170px;
+  left: 150px;
+
+  margin-bottom: 26px;
+
+  overflow: hidden;
+}
+
+.Avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: fill;
+  background-color: var(--active-bg);
+
+  position: absolute;
+  top: 177px;
+  left: 162px;
+}
+
+.TweetsAmount {
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+
+  color: var(--main-txt-cl);
+  text-align: center;
+  margin-top: 240px;
+  margin-bottom: 16px;
+}
+
+.FollowersAmount {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+
+  color: var(--main-txt-cl);
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.Button {
+  width: 196px;
+  height: 50px;
+
+  background: var(--main-txt-cl);
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border-radius: 10.3108px;
+  border: none;
+
+  position: absolute;
+  top: 384px;
+  left: 92px;
+
+  transition: var(--animation);
+}
+
+.Button:hover,
+.Button:focus {
+  opacity: 0.6;
+}
+
+.BtnText {
+  font-family: "Montserrat";
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+
+  text-transform: uppercase;
+
+  color: #373737;
+}
+
+.activeButton {
+  width: 196px;
+  height: 50px;
+  background: #5cd3a8;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border-radius: 10.3108px;
+  border: none;
+
+  position: absolute;
+  top: 384px;
+  left: 92px;
+
+  transition: var(--animation);
+}
+
+.activeButton:hover,
+.activeButton:focus {
+  opacity: 0.6;
+}

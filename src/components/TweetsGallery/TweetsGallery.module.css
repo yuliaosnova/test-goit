@@ -1,0 +1,16 @@
+.Container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  margin-bottom: 40px;
+}
+
+.Title {
+  margin-bottom: 15px;
+}
+
+.Item:not(:last-of-type) {
+  margin-bottom: 15px;
+}

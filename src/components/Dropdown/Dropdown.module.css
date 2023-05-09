@@ -1,0 +1,44 @@
+.DropdownContainer {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  border: 2px solid var(--accent-cl);
+  position: relative;
+}
+
+.DropdownInput {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  
+}
+
+.DropdownMenu {
+  width: 100%;
+  transition: var(--animation);
+  border: 1px solid var(--accent-cl);
+  overflow: auto;
+  max-height: 150px;
+  background-color: transparent;
+}
+
+.DropdownItem {
+  padding: 5px;
+  cursor: pointer;
+  transition: var(--animation);
+}
+
+.DropdownItem:hover {
+  background-color: #efe797;
+}
+
+.DropdownItemSelected {
+  padding: 5px;
+  cursor: pointer;
+
+  background-color: var(--accent-cl);
+  color: #fff;
+}
