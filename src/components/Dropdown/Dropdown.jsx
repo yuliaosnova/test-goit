@@ -33,7 +33,6 @@ const Dropdown = ({ placeHolder, getFilteredValue }) => {
   const onItemClick = (option) => {
     setSelectedValue(option);
     getFilteredValue(option);
-   //  console.log("selectedValue", selectedValue);
   };
 
   const isSelected = (option) => {

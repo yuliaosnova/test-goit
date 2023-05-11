@@ -5,65 +5,60 @@ import LoadMoreBtn from "components/LoadMoreBtn/LoadMoreBtn";
 import { useGetUsersQuery } from "redux/usersSlice";
 import { useSearchParams } from "react-router-dom";
 import Dropdown from "components/Dropdown/Dropdown";
-
+import { filterUsers } from "utils/filterUsers";
+import { paginateUsers } from "utils/paginateUsers";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const { data: users, error } = useGetUsersQuery();
+  console.log(users);
 
   const [searchParams, setSearchParams] = useSearchParams({
     page: 1,
-    filter: "",
+    filter: "all",
   });
+
+  const [paginatedUsers, setPaginatedUsers] = useState([]);
+  console.log("PAGINATED USERS", paginatedUsers);
 
   const page = Number(searchParams.get("page"));
   const filter = searchParams.get("filter");
   const itemsPerPage = 3;
 
   const getFilteredValue = (value) => {
-    setSearchParams({ page: page, filter: value });
+    setSearchParams({ page: 1, filter: value });
+    setPaginatedUsers([]);
   };
 
-  function filterUsers(users) {
-    switch (filter) {
-      case "":
-      case "all":
-        return users;
-
-      case "follow":
-        return users.filter((user) => user.following === true);
-
-      case "not follow":
-        return users.filter((user) => user.following === false);
-
-      default:
-        return users;
-    }
-  }
-
   const setCurrentPage = (number) => {
-    const pageCount = Math.ceil(filterUsers(users).length / itemsPerPage);
-    if (number > pageCount) {
+    const totalPages = Math.ceil(
+      filterUsers(users, filter).length / itemsPerPage
+    );
+    if (number > totalPages) {
       return;
-      //  } else if (number === pageCount) {
-      //    setSearchParams({ page: number, filter: filter });
     } else {
       setSearchParams({ page: number, filter: filter });
     }
   };
 
-  function paginateUsers(arr) {
-    const lastIndex = page * itemsPerPage;
-    const firstIndex = 0;
-    const filteredUsers = filterUsers(users);
-    return filteredUsers.slice(firstIndex, lastIndex);
-  }
+  useEffect(() => {
+    if (users?.length) {
+      const filteredUsers = filterUsers(users, filter);
+
+      const paginatedArr = paginateUsers(filteredUsers, page, itemsPerPage);
+
+      setPaginatedUsers([...paginatedArr]);
+    }
+  }, [users, page, filter]);
 
   return (
     <div>
       <Dropdown placeHolder="Select..." getFilteredValue={getFilteredValue} />
       {error && "ERROR(("}
-      {users && <UsersList users={paginateUsers(users)} />}
-      <LoadMoreBtn setPage={setCurrentPage} page={page} />
+      {users && <UsersList users={paginatedUsers} />}
+      {users && paginatedUsers.length < filterUsers(users, filter).length && (
+        <LoadMoreBtn setPage={setCurrentPage} page={page} />
+      )}
 
       <ToastContainer />
     </div>
